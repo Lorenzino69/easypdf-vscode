@@ -1,0 +1,82 @@
+{
+  "name": "easypdf",
+  "displayName": "EasyPDF",
+  "description": "Adds the EasyPDF MCP server to VS Code so Copilot agent mode can edit PDF text in place, compress, merge, split, convert and translate PDF files.",
+  "version": "0.1.0",
+  "publisher": "easypdf",
+  "author": {
+    "name": "LORENET SYSTEMS"
+  },
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#1E1B3A",
+    "theme": "dark"
+  },
+  "homepage": "https://www.easypdf.fr",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lorenzino69/easypdf-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/Lorenzino69/easypdf-vscode/issues"
+  },
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "categories": [
+    "AI",
+    "Chat",
+    "Other"
+  ],
+  "keywords": [
+    "pdf",
+    "mcp",
+    "copilot",
+    "agent",
+    "edit pdf",
+    "compress pdf",
+    "merge pdf",
+    "pdf to word",
+    "translate pdf"
+  ],
+  "main": "./out/extension.js",
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "activationEvents": [],
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "easypdf",
+        "label": "EasyPDF"
+      }
+    ],
+    "commands": [
+      {
+        "command": "easypdf.openDocumentation",
+        "title": "Open documentation",
+        "category": "EasyPDF"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test:unit": "npm run compile && node --test out/test/unit/provider.test.js",
+    "test:integration": "npm run compile && node ./out/test/runIntegration.js",
+    "test": "npm run test:unit && npm run test:integration",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.17.0",
+    "@types/vscode": "~1.101.0",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "4.0.0",
+    "mocha": "^11.7.0",
+    "typescript": "^5.9.3"
+  }
+}
